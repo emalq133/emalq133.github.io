@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringalinga - 探索全球高保真音效与沉浸式音频体验</title>
+    <meta name="description" content="Ringalinga 提供全球精选的高保真音效库、沉浸式白噪音及音频素材下载。无论是专业制作、游戏开发还是助眠放松，Ringalinga 都能为您提供纯净、高质量的音频解决方案。">
+    <meta name="keywords" content="Ringalinga, 音效下载, 白噪音, 沉浸式音频, 高保真音效, 背景音乐, 助眠音乐, 音频素材">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f3460;
+            --highlight-color: #e94560;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --bg-color: #0f0f1a;
+            --card-bg: #1a1a2e;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--highlight-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--highlight-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: #fff;
+        }
+
+        .cta-btn {
+            background-color: var(--highlight-color);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #d63650;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.8), rgba(26, 26, 46, 0.9)), 
+                        url('https://picsum.photos/seed/audio/1920/1080') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d1d1;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--highlight-color);
+            color: #fff;
+            border: 2px solid var(--highlight-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--highlight-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        /* Audio Visualizer Mockup */
+        .visualizer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            height: 60px;
+            margin: 2rem auto;
+            opacity: 0.8;
+        }
+
+        .bar {
+            width: 6px;
+            background-color: var(--highlight-color);
+            border-radius: 3px;
+            animation: bounce 1s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { height: 10px; }
+            50% { height: 50px; }
+        }
+
+        .bar:nth-child(odd) { animation-duration: 0.8s; }
+        .bar:nth-child(2n) { animation-duration: 1.1s; }
+        .bar:nth-child(3n) { animation-duration: 1.3s; }
+        .bar:nth-child(4n) { animation-duration: 0.9s; }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--highlight-color);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+        }
+
+        .category-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Featured Audio Section */
+        .featured-audio {
+            background-color: var(--secondary-color);
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .audio-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .audio-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .audio-thumb {
+            height: 180px;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-item:hover .audio-thumb img {
+            opacity: 1;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-item:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background-color: var(--highlight-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .audio-info {
+            padding: 1.5rem;
+        }
+
+        .audio-tag {
+            font-size: 0.75rem;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .audio-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .audio-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: left;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item h4::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--highlight-color);
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--highlight-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Ringalinga<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#featured" class="active">精选音效</a></li>
+                    <li><a href="#categories">分类浏览</a></li>
+                    <li><a href="#premium">高级会员</a></li>
+                    <li><a href="#faq">帮助中心</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-btn">免费试用</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="visualizer">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <h1>纯净音质，<br>重塑你的听觉世界</h1>
+                <p>Ringalinga 汇集全球顶尖音频工程师制作的数千种高保真音效、白噪音与背景音乐。从专业影视配乐到冥想助眠，满足所有听觉需求。</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">立即探索</button>
+                    <button class="btn btn-outline">浏览分类</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="section container">
+            <div class="section-header">
+                <h2 class="section-title">探索音频分类</h2>
+                <p class="section-subtitle">无论您是创作者还是听众，这里都有适合您的声音</p>
+            </div>
+            <div class="categories-grid">
+                <article class="category-card">
+                    <div class="cat-icon">🧘</div>
+                    <h3>助眠与冥想</h3>
+                    <p>深度白噪音、雨声、篝火声，帮助您放松身心，进入深度睡眠。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🎬</div>
+                    <h3>影视与游戏</h3>
+                    <p>环境音、脚步声、机械故障音，为您的项目增添真实质感。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🎵</div>
+                    <h3>背景音乐</h3>
+                    <p>无需版权担忧的 Lo-Fi、电子乐与纯音乐，适用于视频与播客。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🔔</div>
+                    <h3>提示音效</h3>
+                    <p>UI 交互音、通知音、点击声，提升用户体验的细节之选。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Audio Section -->
+        <section id="featured" class="section featured-audio">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">本周热门音效</h2>
+                    <p class="section-subtitle">由社区用户投票选出，最受欢迎的高质量音频</p>
+                </div>
+                <div class="audio-grid">
+                    <!-- Audio Item 1 -->
+                    <article class="audio-item">
+                        <div class="audio-thumb">
+                            <img src="https://picsum.photos/seed/rain/400/300" alt="深夜雨声">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <span class="audio-tag">自然白噪音</span>
+                            <h3 class="audio-title">深夜雨窗</h3>
+                            <div class="audio-meta">
+                                <span>时长: 2:30</span>
+                                <span>格式: WAV</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Audio Item 2 -->
+                    <article class="audio-item">
+                        <div class="audio-thumb">
+                            <img src="https://picsum.photos/seed/cyber/400/300" alt="赛博朋克环境音">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <span class="audio-tag">环境音效</span>
+                            <h3 class="audio-title">霓虹都市</h3>
+                            <div class="audio-meta">
+                                <span>时长: 3:15</span>
+                                <span>格式: MP3</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Audio Item 3 -->
+                    <article class="audio-item">
+                        <div class="audio-thumb">
+                            <img src="https://picsum.photos/seed/piano/400/300" alt="钢琴纯音乐">
+                            <div class="play-overlay">
+                                <div class="play-btn">▶</div>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <span class="audio-tag">背景音乐</span>
+                            <h3 class="audio-title">静谧午后</h3>
+                            <div class="audio-meta">
+                                <span>时长: 4:00</span>
+                                <span>格式: WAV</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section container">
+            <div class="section-header">
+                <h2 class="section-title">为什么选择 Ringalinga</h2>
+                <p class="section-subtitle">我们致力于为全球用户提供最专业、最纯净的音频资源</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>无损音质</h4>
+                    <p>所有音频素材均提供 24-bit/48kHz 或更高规格的 WAV 格式下载，保留声音的每一个细节。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>商用授权</h4>
+                    <p>购买即可获得全球商用授权，无需额外支付版税，让您的创作无后顾之忧。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>社区共创</h4>
+                    <p>汇聚全球音频设计师，持续更新最新的声音趋势与创意音效。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        下载的音频格式有哪些？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ringalinga 提供多种格式，包括 WAV（无损）、MP3（压缩）和 FLAC。您可以在详情页根据需求选择下载。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        这些音效可以用于商业项目吗？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，购买会员或单次下载的音效均包含全球范围内的商用授权，适用于视频、游戏、广告等商业用途。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        如何申请退款？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>如果您对购买的音效不满意，我们提供 7 天无理由退款服务。请联系客服并提供订单号。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Ringalinga<span>.</span></a>
+                    <p>致力于为全球创作者提供最优质的音频素材库，让每一个声音都触动人心的深处。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源库</h4>
+                    <ul>
+                        <li><a href="#">最新上传</a></li>
+                        <li><a href="#">热门榜单</a></li>
+                        <li><a href="#">免费专区</a></li>
+                        <li><a href="#">音效分类</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">创作者指南</a></li>
+                        <li><a href="#">版权说明</a></li>
+                        <li><a href="#">API 文档</a></li>
+                        <li><a href="#">开发者中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">合作洽谈</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ringalinga Audio Library. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                                                  </html>
