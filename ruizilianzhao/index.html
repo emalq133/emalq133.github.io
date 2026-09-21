@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑞兹连招 - 永恒执法者技能机制与实战连招教学指南</title>
+    <meta name="description" content="本页面提供瑞兹连招的完整教学指南，包含核心Q技能机制解析、W技能连携技巧、E技能位移与闪现连招、以及R技能终结技的正确释放时机。提供从基础到高阶的符文搭配与出装建议，助你精通永恒执法者。">
+    <meta name="keywords" content="瑞兹连招,英雄联盟瑞兹,瑞兹教学,瑞兹出装,瑞兹符文,LOL瑞兹连招">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-blue: #2b86e3;
+            --primary-dark: #1a4b7a;
+            --accent-cyan: #00e5ff;
+            --text-main: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --bg-dark: #0f1115;
+            --bg-card: #181b21;
+            --bg-card-hover: #22262e;
+            --border-color: #2f3640;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(15, 17, 21, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5rem 0;
+            background: radial-gradient(circle at top right, rgba(43, 134, 227, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(0, 229, 255, 0.1), transparent 40%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(43, 134, 227, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 350px;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* Placeholder for visual representation */
+        .hero-image::before {
+            content: "瑞兹技能演示区";
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+
+        /* Core Mechanics Grid */
+        .mechanics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .mech-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .mech-card:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .mech-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(43, 134, 227, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .mech-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mech-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Combo Section */
+        .combo-section {
+            padding: 4rem 0;
+        }
+
+        .combo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .combo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .combo-item {
+            background-color: var(--bg-card);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .combo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .combo-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .combo-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-binding {
+            display: inline-flex;
+            gap: 0.5rem;
+        }
+
+        .key {
+            background-color: #333;
+            border-bottom: 3px solid #111;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .combo-visual {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .combo-visual h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .combo-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .step {
+            background-color: rgba(43, 134, 227, 0.1);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Advanced Section */
+        .advanced-section {
+            background-color: #14161b;
+            padding: 4rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-box {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .tip-box h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .tip-box ul {
+            list-style-position: inside;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .tip-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0c0f;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content, .combo-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>Ψ</span> RYZE MASTER
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">连招教学</a>
+                    <a href="#">符文出装</a>
+                    <a href="#">对线技巧</a>
+                    <a href="#">进阶意识</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>精通瑞兹连招<br>掌控符文洪流</h1>
+                    <p>作为英雄联盟中机制最复杂的法师之一，瑞兹的连招不仅仅是按键的堆砌，更是对W技能层数的极致掌控。掌握核心连招，让符文洪流成为你的致命武器。</p>
+                    <a href="#combo-guide" class="btn">开始学习连招</a>
+                </div>
+                <div class="hero-image">
+                    <!-- Visual representation placeholder -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Mechanics -->
+        <section class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+            <h2 class="section-title">核心机制解析</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">理解这些机制是学会瑞兹连招的基础。</p>
+            
+            <div class="mechanics-grid">
+                <article class="mech-card">
+                    <div class="mech-icon">Q</div>
+                    <h3>符文禁锢</h3>
+                    <p>瑞兹的核心控制技能。Q技能命中敌方英雄时会产生一层禁锢效果，叠加层数越多，禁锢时间越长，伤害越高。必须优先命中多个目标。</p>
+                </article>
+                <article class="mech-card">
+                    <div class="mech-icon">W</div>
+                    <h3>过载</h3>
+                    <p>瑞兹的灵魂。W技能的层数决定了技能的范围和特效。每次W命中都会增加一层层数，最多叠加5层。连招的节奏完全取决于W的层数管理。</p>
+                </article>
+                <article class="mech-card">
+                    <div class="mech-icon">E</div>
+                    <h3>法术涌动</h3>
+                    <p>E技能不仅提供护盾和加速，更重要的是它能让瑞兹的普攻和技能获得法术涌动效果。这是触发W被动和进行持续伤害的关键。</p>
+                </article>
+                <article class="mech-card">
+                    <div class="mech-icon">R</div>
+                    <h3>超越极限</h3>
+                    <p>瑞兹的大招会将所有层数转化为法力值，并重置W技能。R技能是开启团战、刷新技能冷却或进行爆发收割的关键时刻。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Combo Guide -->
+        <section id="combo-guide" class="combo-section">
+            <div class="container">
+                <h2 class="section-title">实战连招指南</h2>
+                
+                <div class="combo-container">
+                    <div class="combo-list">
+                        <div class="combo-item">
+                            <div class="combo-header">
+                                <span class="combo-title">基础消耗连招</span>
+                                <span class="key-binding">
+                                    <span class="key">Q</span> <span class="key">E</span> <span class="key">Q</span> <span class="key">W</span>
+                                </span>
+                            </div>
+                            <p class="combo-desc">利用E技能的被动普攻叠满W，然后Q技能打出最高伤害和禁锢。</p>
+                        </div>
+
+                        <div class="combo-item">
+                            <div class="combo-header">
+                                <span class="combo-title">W技能突进连招</span>
+                                <span class="key-binding">
+                                    <span class="key">W</span> <span class="key">E</span> <span class="key">Q</span> <span class="key">Q</span> <span class="key">W</span>
+                                </span>
+                            </div>
+                            <p class="combo-desc">W突进至目标身边，利用E技能叠满W，然后接Q技能消耗或控制。</p>
+                        </div>
+
+                        <div class="combo-item">
+                            <div class="combo-header">
+                                <span class="combo-title">R技能刷新连招</span>
+                                <span class="key-binding">
+                                    <span class="key">R</span> <span class="key">Q</span> <span class="key">W</span> <span class="key">E</span> <span class="key">Q</span>
+                                </span>
+                            </div>
+                            <p class="combo-desc">大招重置W后，迅速接上Q技能打出爆发，适合中单单杀或团战切入。</p>
+                        </div>
+                    </div>
+
+                    <div class="combo-visual">
+                        <h4>连招演示流程</h4>
+                        <div class="combo-steps">
+                            <div class="step">1. 保持W技能叠满</div>
+                            <div class="step">2. 释放E技能接近</div>
+                            <div class="step">3. Q技能命中目标</div>
+                            <div class="step">4. W技能持续消耗</div>
+                            <div class="step">5. R技能终结收割</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Tips -->
+        <section class="advanced-section">
+            <div class="container">
+                <h2 class="section-title">高阶技巧与注意事项</h2>
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <h4>连招节奏</h4>
+                        <ul>
+                            <li>永远保持W技能叠满5层，这是瑞兹伤害的基石。</li>
+                            <li>不要为了按连招而忽略走位，瑞兹身板较脆。</li>
+                            <li>利用E技能调整站位，确保Q技能能同时命中多个目标。</li>
+                        </ul>
+                    </div>
+                    <div class="tip-box">
+                        <h4>R技能用法</h4>
+                        <ul>
+                            <li>R技能可以重置W技能，用于快速刷新冷却时间。</li>
+                            <li>团战中，先手R可以瞬间打出高额爆发并控制多个敌人。</li>
+                            <li>被控制时，R技能可以用来保护自己或尝试反打。</li>
+                        </ul>
+                    </div>
+                    <div class="tip-box">
+                        <h4>符文与出装</h4>
+                        <ul>
+                            <li>推荐主系【相位猛冲】，提供移速和双抗，便于走A和连招。</li>
+                            <li>副系选择【主宰】或【巫术】提升爆发或冷却缩减。</li>
+                            <li>核心装备【海克斯科技枪刃】和【灭世者的死亡之帽】大幅提升法强。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 RYZE MASTER GUIDE. 本页面仅供学习交流使用。</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">League of Legends is a trademark of Riot Games, Inc.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
