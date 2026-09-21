@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="天猫入驻考试助手提供最新的天猫商家入驻考试题库、模拟试题、答案解析及备考指南，帮助商家快速通过天猫官方审核。">
+    <meta name="keywords" content="天猫入驻考试助手,天猫入驻考试,天猫商家考试,天猫入驻题库,天猫审核考试答案">
+    <title>天猫入驻考试助手 - 官方考试题库与备考指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff0036; /* 天猫红 */
+            --primary-hover: #cc002a;
+            --secondary-color: #ffde00; /* 天猫黄 */
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Exam Section */
+        .exam-section {
+            padding: 80px 0;
+        }
+
+        .exam-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .exam-list {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .exam-item {
+            padding: 20px 30px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exam-item:last-child {
+            border-bottom: none;
+        }
+
+        .exam-info h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .exam-info p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .exam-meta {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .tag-hot {
+            background-color: #ffebeb;
+            color: var(--primary-color);
+        }
+
+        .tag-new {
+            background-color: #e6f7ff;
+            color: #1890ff;
+        }
+
+        .exam-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-card h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-item h4 {
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #eee;
+            z-index: 0;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            font-size: 14px;
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+            font-size: 24px;
+            color: var(--text-light);
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--text-light);
+        }
+
+        .faq-item:not(.active) .faq-question::before {
+            content: '−';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .exam-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .step-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M512 85.333333c235.648 0 426.666667 191.018667 426.666667 426.666667s-191.018667 426.666667-426.666667 426.666667S85.333333 747.648 85.333333 512 276.352 85.333333 512 85.333333z m0 682.666667c141.44 0 256-114.56 256-256s-114.56-256-256-256-256 114.56-256 256 114.56 256 256 256z" fill="#ff0036"/>
+                </svg>
+                天猫入驻考试助手<span>ExamHelper</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#exam-list">题库模拟</a></li>
+                    <li><a href="#guide">备考指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#exam-list" class="btn btn-outline">立即开始练习</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>天猫入驻考试<br><span>通关无忧</span></h1>
+                <p>专业整理天猫商家入驻考试题库，包含商家准入、规则解读及最新政策。提供模拟测试与答案解析，助您快速通过官方审核。</p>
+                <div class="hero-btns">
+                    <a href="#exam-list" class="btn btn-primary">免费查看题库</a>
+                    <a href="#guide" class="btn btn-outline">了解考试流程</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>精选真题</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>通过率提升</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24h</h3>
+                        <p>实时更新</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择我们？</h2>
+                    <p>针对天猫商家入驻考试特点，提供全方位的备考支持</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>全真模拟系统</h3>
+                        <p>模拟真实考试环境，限时练习，帮助您熟悉题型与节奏。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>精准考点解析</h3>
+                        <p>针对每道题提供详细解析，深入理解天猫规则与经营规范。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速更新维护</h3>
+                        <p>紧跟平台规则调整，第一时间更新题库内容，确保答案准确。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam List Section -->
+        <section id="exam-list" class="exam-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>最新题库资源</h2>
+                    <p>覆盖商家入驻考试全科目，支持分类浏览与在线测试</p>
+                </div>
+                <div class="exam-container">
+                    <div class="exam-list">
+                        <div class="exam-item">
+                            <div class="exam-info">
+                                <h4>商家入驻准入考试（基础篇）</h4>
+                                <p>包含企业资质审核、保证金规则、品牌授权等核心知识点</p>
+                            </div>
+                            <div class="exam-meta">
+                                <span class="tag tag-hot">热门</span>
+                                <a href="#" class="btn btn-primary" style="padding: 6px 15px; font-size: 14px;">开始练习</a>
+                            </div>
+                        </div>
+                        <div class="exam-item">
+                            <div class="exam-info">
+                                <h4>天猫规则与经营规范（进阶篇）</h4>
+                                <p>涵盖广告法合规、消费者权益保护、违规处理机制详解</p>
+                            </div>
+                            <div class="exam-meta">
+                                <span class="tag tag-new">最新</span>
+                                <a href="#" class="btn btn-primary" style="padding: 6px 15px; font-size: 14px;">开始练习</a>
+                            </div>
+                        </div>
+                        <div class="exam-item">
+                            <div class="exam-info">
+                                <h4>知识产权与品牌保护专项</h4>
+                                <p>针对商标注册、侵权判定及品牌保护策略的专项考试</p>
+                            </div>
+                            <div class="exam-meta">
+                                <a href="#" class="btn btn-outline" style="padding: 6px 15px; font-size: 14px;">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="exam-item">
+                            <div class="exam-info">
+                                <h4>2024年最新平台规则解读</h4>
+                                <p>针对近期平台算法调整、流量分发规则的专项试题</p>
+                            </div>
+                            <div class="exam-meta">
+                                <span class="tag tag-new">更新</span>
+                                <a href="#" class="btn btn-primary" style="padding: 6px 15px; font-size: 14px;">开始练习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="exam-sidebar">
+                        <div class="sidebar-card">
+                            <h3>考试重点提示</h3>
+                            <ul class="sidebar-list">
+                                <li><a href="#">入驻基本流程详解 <span>→</span></a></li>
+                                <li><a href="#">企业资质审核标准 <span>→</span></a></li>
+                                <li><a href="#">保证金与佣金规则 <span>→</span></a></li>
+                                <li><a href="#">商家违规扣分标准 <span>→</span></a></li>
+                                <li><a href="#">天猫规则下载中心 <span>→</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card" style="background: linear-gradient(135deg, #ff0036, #cc002a); color: white;">
+                            <h3 style="color: white; border-left-color: white;">备考冲刺</h3>
+                            <p style="margin-bottom: 20px; font-size: 14px; opacity: 0.9;">掌握最新考点，一次通过审核。</p>
+                            <a href="#" class="btn" style="background: white; color: var(--primary-color); width: 100%;">领取备考资料</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>入驻考试全流程指南</h2>
+                    <p>从注册到通过考试，每一步都有专业指导</p>
+                </div>
+                <div class="step-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h4>商家入驻注册</h4>
+                        <p>通过天猫招商官网填写企业信息，提交品牌资质申请。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h4>平台资质审核</h4>
+                        <p>天猫招商团队审核企业营业执照、品牌授权书等材料。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h4>参加入驻考试</h4>
+                        <p>审核通过后，登录卖家中心参加商家准入考试。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h4>开店经营</h4>
+                        <p>考试通过后缴纳保证金，完成店铺装修即可上线销售。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">入驻考试满分是多少？及格线是多少？</div>
+                    <div class="faq-answer">
+                        天猫商家入驻考试通常为100分制。考试内容涵盖商家准入、规则解读等，一般要求达到80分（或90分）以上才算通过，具体分数线请以入驻页面提示为准。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">考试次数有限制吗？</div>
+                    <div class="faq-answer">
+                        通常情况下，考试有次数限制。如果连续多次未通过，账号可能会被暂时锁定或限制入驻资格，建议充分复习后再进行考试。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">题库中的答案是否准确？</div>
+                    <div class="faq-answer">
+                        本站题库基于天猫官方规则整理，我们会定期更新以适应规则变化。但平台规则可能随时调整，建议结合官方发布的最新规则进行学习。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">没有企业资质可以参加考试吗？</div>
+                    <div class="faq-answer">
+                        不可以。天猫商家入驻考试针对的是已经提交入驻申请并通过初步资质审核的商家。考试的主要目的是验证商家对平台规则的理解。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>天猫入驻考试助手</h3>
+                    <p>专注于为天猫商家提供最专业、最及时的考试备考资源与入驻指导服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>备考资源</h4>
+                    <ul>
+                        <li><a href="#">入驻流程</a></li>
+                        <li><a href="#">考试大纲</a></li>
+                        <li><a href="#">模拟试题</a></li>
+                        <li><a href="#">规则下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">合作招募</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 天猫入驻考试助手 ExamHelper. All Rights Reserved. 本站为学习交流平台，非天猫官方。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
