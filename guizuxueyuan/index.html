@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="贵族学院的双面公主漫画在线阅读平台，提供最新章节、高清大图、角色介绍及剧情解析，沉浸式体验校园与奇幻交织的精彩故事。">
+    <meta name="keywords" content="贵族学院的双面公主, 漫画, 在线阅读, 校园, 奇幻, 漫画推荐">
+    <title>贵族学院的双面公主-热门校园奇幻漫画连载与高清阅读</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6a1b9a;
+            --primary-light: #9c4dcc;
+            --secondary-color: #f3e5f5;
+            --accent-color: #ff4081;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-body: #fdfbf7;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), transparent);
+            margin-left: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 200px;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2a0e3d 0%, #4a148c 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+        }
+
+        .btn-read:hover {
+            transform: translateY(-2px);
+            background: #f50057;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Chapter List */
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-item:hover {
+            border-left-color: var(--primary-color);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .chapter-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .chapter-meta {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 4px;
+        }
+
+        .chapter-action {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .chapter-action:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .character-item {
+            text-align: center;
+        }
+
+        .char-img {
+            width: 100%;
+            height: 100px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .char-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .char-role {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* Synopsis */
+        .synopsis-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+            border: 1px solid #eee;
+        }
+
+        .synopsis-text {
+            color: var(--text-gray);
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: #ccc;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .character-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>MH</span> 贵族学院的双面公主
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新章节</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">角色图鉴</a></li>
+                    <li><a href="#">评论</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索章节或角色...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>贵族学院的双面公主</h1>
+                <p>在精英云集的圣罗兰斯学院，她隐藏着不为人知的秘密身份。白天是唯唯诺诺的转校生，夜晚却是令暗夜贵族闻风丧胆的神秘女王。</p>
+                <div class="hero-tags">
+                    <span class="tag">校园</span>
+                    <span class="tag">奇幻</span>
+                    <span class="tag">恋爱</span>
+                    <span class="tag">逆袭</span>
+                </div>
+                <a href="#chapters" class="btn-read">立即开始阅读</a>
+            </div>
+        </section>
+
+        <!-- Synopsis -->
+        <section class="container">
+            <h2 class="section-title">剧情简介</h2>
+            <div class="synopsis-box">
+                <p class="synopsis-text">
+                    故事讲述了被家族流放、背负着沉重宿命的少女艾琳娜，为了查明真相并夺回属于自己的一切，伪装成普通学生进入全欧洲最顶尖的贵族学院——圣罗兰斯学院。
+                    <br><br>
+                    在这里，她不仅要应对繁重的学业和勾心斗角的贵族社交圈，还要时刻提防被识破身份的危险。然而，命运的齿轮开始转动，她先后遇到了高冷霸道的校草兼学生会会长，以及温柔腹黑的神秘转校生。两个截然不同的男孩，一个代表光明，一个代表黑暗，他们的出现彻底打乱了艾琳娜原本平静的伪装生活。在这场关于爱、复仇与成长的博弈中，她能否在双面人生中找到真正的自我？
+                </p>
+                <span class="read-more">展开全部剧情 &rarr;</span>
+            </div>
+        </section>
+
+        <div class="container main-layout" id="chapters">
+            <!-- Chapter List -->
+            <section class="chapters-section">
+                <h2 class="section-title">最新连载</h2>
+                <div class="chapter-list">
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第42话：暗夜的低语</span>
+                            <span class="chapter-meta">更新时间：2023-10-24 | 状态：连载中</span>
+                        </div>
+                        <a href="#" class="chapter-action">阅读 &rarr;</a>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第41话：双重陷阱</span>
+                            <span class="chapter-meta">更新时间：2023-10-18 | 状态：连载中</span>
+                        </div>
+                        <a href="#" class="chapter-action">阅读 &rarr;</a>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第40话：破碎的誓言</span>
+                            <span class="chapter-meta">更新时间：2023-10-10 | 状态：连载中</span>
+                        </div>
+                        <a href="#" class="chapter-action">阅读 &rarr;</a>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第39话：意外的相遇</span>
+                            <span class="chapter-meta">更新时间：2023-09-28 | 状态：连载中</span>
+                        </div>
+                        <a href="#" class="chapter-action">阅读 &rarr;</a>
+                    </article>
+                    <article class="chapter-item">
+                        <div class="chapter-info">
+                            <span class="chapter-title">第38话：家族的秘密</span>
+                            <span class="chapter-meta">更新时间：2023-09-15 | 状态：连载中</span>
+                        </div>
+                        <a href="#" class="chapter-action">阅读 &rarr;</a>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <button style="padding: 10px 25px; background: var(--secondary-color); border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 5px; cursor: pointer;">查看更多章节</button>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside>
+                <!-- Character Intro -->
+                <div class="card">
+                    <h3>主要角色</h3>
+                    <div class="character-grid">
+                        <div class="character-item">
+                            <div class="char-img">
+                                <img src="https://picsum.photos/seed/princess1/100/100" alt="艾琳娜">
+                            </div>
+                            <div class="char-name">艾琳娜</div>
+                            <div class="char-role">主角 / 双面公主</div>
+                        </div>
+                        <div class="character-item">
+                            <div class="char-img">
+                                <img src="https://picsum.photos/seed/boy1/100/100" alt="亚瑟">
+                            </div>
+                            <div class="char-name">亚瑟</div>
+                            <div class="char-role">学生会会长</div>
+                        </div>
+                        <div class="character-item">
+                            <div class="char-img">
+                                <img src="https://picsum.photos/seed/boy2/100/100" alt="西泽尔">
+                            </div>
+                            <div class="char-name">西泽尔</div>
+                            <div class="char-role">神秘转校生</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ranking -->
+                <div class="card">
+                    <h3>热门榜单</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 10px;">
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #ffc107; font-weight: bold; width: 20px;">1</span>
+                            <span style="font-size: 0.95rem;">第40话：破碎的誓言</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #ffc107; font-weight: bold; width: 20px;">2</span>
+                            <span style="font-size: 0.95rem;">第39话：意外的相遇</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #ffc107; font-weight: bold; width: 20px;">3</span>
+                            <span style="font-size: 0.95rem;">第38话：家族的秘密</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #ccc; font-weight: bold; width: 20px;">4</span>
+                            <span style="font-size: 0.95rem;">第37话：午夜舞会</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #ccc; font-weight: bold; width: 20px;">5</span>
+                            <span style="font-size: 0.95rem;">第36话：初次交锋</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags -->
+                <div class="card">
+                    <h3>热门标签</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" class="tag">双女主</a>
+                        <a href="#" class="tag">高冷</a>
+                        <a href="#" class="tag">黑化</a>
+                        <a href="#" class="tag">校园</a>
+                        <a href="#" class="tag">奇幻</a>
+                        <a href="#" class="tag">复仇</a>
+                        <a href="#" class="tag">恋爱</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        MH漫画致力于为读者提供最优质的校园奇幻漫画阅读体验。我们精选国内外优质作品，致力于打造最舒适的阅读环境。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">热门推荐</a></li>
+                        <li><a href="#">最新更新</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">其他漫画网站</a></li>
+                        <li><a href="#">二次元社区</a></li>
+                        <li><a href="#">官方微博</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系合作</h4>
+                    <ul>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MH漫画 - 贵族学院的双面公主. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
