@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QQ好友印象网提供最全面的QQ好友印象查询、头像解析、性格测试及趣味互动功能。了解好友眼中的你，探索社交关系中的趣味真相，体验独特的社交互动乐趣。">
+    <meta name="keywords" content="qq好友印象,QQ印象查询,QQ头像解析,社交互动,趣味测试">
+    <title>QQ好友印象-趣味社交互动与头像解析平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #12b7f5;
+            --primary-dark: #0a9ad4;
+            --secondary-color: #f5a623;
+            --bg-color: #f7f8fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .header-actions button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f7fa 0%, #e1f5fe 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            margin-bottom: 32px;
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            padding: 8px;
+            border-radius: 50px;
+            display: flex;
+            box-shadow: var(--shadow-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Section: How it Works */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        /* Section: Featured Impressions */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .impression-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .impression-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .impression-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            position: relative;
+            height: 120px;
+            background: #f0f2f5;
+        }
+
+        .card-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qq-id {
+            font-size: 12px;
+            color: var(--text-sub);
+            background: #f0f2f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .impression-text {
+            color: var(--text-main);
+            font-size: 15px;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #e3f2fd;
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .like-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .like-btn:hover {
+            color: #ff4757;
+        }
+
+        /* Section: Personality Test */
+        .test-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 60px;
+        }
+
+        .test-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .test-content h2 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .test-content p {
+            color: var(--text-sub);
+            margin-bottom: 24px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .test-visual {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--radius-md);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .test-visual h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .test-visual p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 16px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-sub);
+            font-size: 15px;
+            display: none;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 12px;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .test-section {
+                padding: 24px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box input {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>QQ</span>好友印象
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">印象墙</a></li>
+                    <li><a href="#">头像解析</a></li>
+                    <li><a href="#">性格测试</a></li>
+                    <li><a href="#">社区话题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>登录 / 注册</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索好友眼中的你</h1>
+            <p>输入QQ号，查看来自全国各地的真实好友印象，发现有趣性格标签，开启社交互动新体验。</p>
+            <div class="search-box">
+                <input type="text" placeholder="请输入QQ号码查询好友印象...">
+                <button>立即查询</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- How It Works -->
+        <section>
+            <div class="section-title">
+                <h2>如何使用</h2>
+                <p>简单三步，生成你的专属印象报告</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-icon">🔍</span>
+                    <h3>输入QQ号</h3>
+                    <p>在搜索框中输入您想查询的好友QQ号码，系统将自动检索相关数据。</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-icon">✍️</span>
+                    <h3>查看印象</h3>
+                    <p>浏览来自不同好友留下的个性标签、心情短语和真实评价。</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-icon">💬</span>
+                    <h3>参与互动</h3>
+                    <p>留下你的印象，成为他人印象墙的一部分，建立更有趣的社交连接。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Impressions -->
+        <section>
+            <div class="section-header">
+                <h2>热门印象墙</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="impression-grid">
+                <!-- Card 1 -->
+                <article class="impression-card">
+                    <div class="card-header">
+                        <img src="https://picsum.photos/seed/user1/400/200" alt="User Avatar">
+                        <span class="user-badge">在线</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="user-name">快乐小王子 <span class="qq-id">ID: 8829101</span></h3>
+                        <div class="tags">
+                            <span class="tag">幽默风趣</span>
+                            <span class="tag">深夜修仙党</span>
+                            <span class="tag">游戏大神</span>
+                        </div>
+                        <p class="impression-text">感觉是个特别有梗的人，每次聊天都能被逗笑，而且打游戏超级厉害，带飞全场！希望能加个好友一起开黑。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>发布于 2小时前</span>
+                        <div class="like-btn">
+                            <span>❤️</span> 128
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="impression-card">
+                    <div class="card-header">
+                        <img src="https://picsum.photos/seed/user2/400/200" alt="User Avatar">
+                        <span class="user-badge">在线</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="user-name">文艺少女 <span class="qq-id">ID: 2938471</span></h3>
+                        <div class="tags">
+                            <span class="tag">高冷</span>
+                            <span class="tag">爱猫</span>
+                            <span class="tag">书虫</span>
+                        </div>
+                        <p class="impression-text">虽然话不多，但很有内涵。每次发的朋友圈都很美，感觉是一个内心很细腻的女生。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>发布于 5小时前</span>
+                        <div class="like-btn">
+                            <span>❤️</span> 95
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="impression-card">
+                    <div class="card-header">
+                        <img src="https://picsum.photos/seed/user3/400/200" alt="User Avatar">
+                        <span class="user-badge">离线</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="user-name">职场老司机 <span class="qq-id">ID: 1039204</span></h3>
+                        <div class="tags">
+                            <span class="tag">靠谱</span>
+                            <span class="tag">热心</span>
+                            <span class="tag">吐槽帝</span>
+                        </div>
+                        <p class="impression-text">工作上的事情找他绝对没问题，非常热心肠。私底下是个有趣的灵魂，经常吐槽工作，哈哈。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>发布于 昨天</span>
+                        <div class="like-btn">
+                            <span>❤️</span> 256
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="impression-card">
+                    <div class="card-header">
+                        <img src="https://picsum.photos/seed/user4/400/200" alt="User Avatar">
+                        <span class="user-badge">在线</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="user-name">元气小怪兽 <span class="qq-id">ID: 5549210</span></h3>
+                        <div class="tags">
+                            <span class="tag">吃货</span>
+                            <span class="tag">热情</span>
+                            <span class="tag">爱笑</span>
+                        </div>
+                        <p class="impression-text">感觉是个特别有活力的人，认识她之后整个人都开心了！虽然爱点外卖，但是人也超级好。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>发布于 昨天</span>
+                        <div class="like-btn">
+                            <span>❤️</span> 312
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Personality Test Section -->
+        <section>
+            <div class="test-section">
+                <div class="test-content">
+                    <h2>趣味性格测试</h2>
+                    <p>想知道你的好友会给你打上什么标签吗？完成这个简单的性格测试，系统将为你生成专属的“好友印象报告”，包含你的核心性格关键词和潜在印象。</p>
+                    <ul class="feature-list">
+                        <li>基于大数据的性格分析算法</li>
+                        <li>生成独一无二的印象标签</li>
+                        <li>支持分享到QQ空间和朋友圈</li>
+                        <li>发现你未曾注意到的性格侧面</li>
+                    </ul>
+                    <br>
+                    <button class="btn-outline" style="background:var(--primary-color); border:none; color:white;">开始测试</button>
+                </div>
+                <div class="test-visual">
+                    <h3>你的好友印象是？</h3>
+                    <p>点击上方按钮，立即解锁</p>
+                    <div style="font-size: 60px; margin-bottom: 20px;">🎭</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>常见问题</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">查询QQ好友印象需要收费吗？</div>
+                <div class="faq-answer">
+                    基础的印象查询功能是完全免费的。部分高级的深度解析报告和个性化头像解析功能可能需要使用积分或会员权益。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">查询到的印象数据是真实的吗？</div>
+                <div class="faq-answer">
+                    是的，我们采用社区互动模式，所有的印象标签和评价都由其他真实用户提交，经过简单的审核机制，确保内容的真实性和趣味性。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">可以自己上传印象吗？</div>
+                <div class="faq-answer">
+                    当然可以。登录账号后，你可以给任何QQ用户留下你的印象，包括标签、心情短语和评价。你的评价将成为他人印象墙的一部分。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何提高被查询的概率？</div>
+                <div class="faq-answer">
+                    保持账号活跃，定期参与互动，完善个人资料，并邀请好友来你的主页留言，都能有效提高你在印象墙上的曝光率。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <span>QQ</span>好友印象
+                </div>
+                <p style="color: #95a5a6; font-size: 14px; line-height: 1.8;">
+                    致力于为用户提供最有趣的社交互动体验，发现好友眼中的真实自我。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>功能服务</h4>
+                <ul>
+                    <li><a href="#">印象查询</a></li>
+                    <li><a href="#">头像解析</a></li>
+                    <li><a href="#">性格测试</a></li>
+                    <li><a href="#">印象墙</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">QQ粉丝群</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 QQ好友印象平台 版权所有 | 本站内容仅供娱乐参考
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Simple Search Interaction
+            const searchBtn = document.querySelector('.search-box button');
+            const searchInput = document.querySelector('.search-box input');
+            
+            searchBtn.addEventListener('click', () => {
+                const val = searchInput.value.trim();
+                if(val) {
+                    // Simulate a search action
+                    alert('正在查询用户 ' + val + ' 的好友印象数据...\n(演示功能：实际项目中将跳转至详情页)');
+                } else {
+                    searchInput.focus();
+                }
+            });
+            
+            searchInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+                  </html>
