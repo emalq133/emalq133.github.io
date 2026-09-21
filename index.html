@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="含羞草中转站fi11.cn - 专业的高速文件分享与中转服务平台，提供安全、稳定的网盘文件下载、资源中转与存储服务，支持多种格式文件的高速传输。">
+    <meta name="keywords" content="含羞草中转站,fi11.cn,文件中转,网盘下载,高速分享,文件存储">
+    <title>含羞草中转站fi11.cn - 专业高速文件分享与中转服务平台</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary-color: #FFC107;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-upload {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-upload:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .search-box button {
+            background-color: var(--text-main);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Stats */
+        .stats-bar {
+            background-color: var(--bg-card);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* File Card */
+        .file-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .file-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .file-icon.zip { background-color: #fff3e0; color: #f57c00; }
+        .file-icon.img { background-color: #fce4ec; color: #c2185b; }
+        .file-icon.doc { background-color: #e8f5e9; color: #388e3c; }
+
+        .file-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .file-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .btn-sm:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-sm.primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .btn-sm.primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-card);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Service List */
+        .service-list {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-content h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .service-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-brand p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z" />
+            </svg>
+            fi11.cn 含羞草中转站
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">资源大全</a></li>
+                <li><a href="#">最新上传</a></li>
+                <li><a href="#">帮助中心</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-upload">上传文件</a>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>安全、高速、稳定的文件中转站</h1>
+        <p>fi11.cn 含羞草中转站为您提供专业的网盘文件分享与下载服务，支持大文件高速传输，保护您的数据隐私与安全。</p>
+        <div class="search-box">
+            <input type="text" placeholder="搜索文件、资源或提取码...">
+            <button>搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="stats-bar">
+    <div class="container stats-grid">
+        <div class="stat-item">
+            <h3>1.2TB+</h3>
+            <p>已存储资源</p>
+        </div>
+        <div class="stat-item">
+            <h3>50万+</h3>
+            <p>注册用户</p>
+        </div>
+        <div class="stat-item">
+            <h3>99.9%</h3>
+            <p>在线稳定性</p>
+        </div>
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>技术支持</p>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <section>
+        <h2 class="section-title">热门资源分类</h2>
+        <div class="grid-layout">
+            <article class="file-card">
+                <div>
+                    <div class="file-icon zip">📦</div>
+                    <div class="file-info">
+                        <h4>实用工具合集 v2.0</h4>
+                        <p>包含系统优化、办公软件及开发工具</p>
+                    </div>
+                    <div class="file-meta">
+                        <span>1.2GB</span>
+                        <span>2小时前</span>
+                    </div>
+                </div>
+                <div class="file-actions">
+                    <button class="btn-sm">下载</button>
+                    <button class="btn-sm primary">提取码: abc</button>
+                </div>
+            </article>
+
+            <article class="file-card">
+                <div>
+                    <div class="file-icon img">🖼️</div>
+                    <div class="file-info">
+                        <h4>高清无水印壁纸包</h4>
+                        <p>4K超清壁纸，适用于桌面与移动端</p>
+                    </div>
+                    <div class="file-meta">
+                        <span>850MB</span>
+                        <span>5小时前</span>
+                    </div>
+                </div>
+                <div class="file-actions">
+                    <button class="btn-sm">下载</button>
+                    <button class="btn-sm primary">提取码: def</button>
+                </div>
+            </article>
+
+            <article class="file-card">
+                <div>
+                    <div class="file-icon doc">📄</div>
+                    <div class="file-info">
+                        <h4>2024行业研究报告</h4>
+                        <p>PDF格式，深度分析市场趋势</p>
+                    </div>
+                    <div class="file-meta">
+                        <span>45MB</span>
+                        <span>1天前</span>
+                    </div>
+                </div>
+                <div class="file-actions">
+                    <button class="btn-sm">下载</button>
+                    <button class="btn-sm primary">提取码: ghi</button>
+                </div>
+            </article>
+
+            <article class="file-card">
+                <div>
+                    <div class="file-icon zip">📦</div>
+                    <div class="file-info">
+                        <h4>游戏安装包合集</h4>
+                        <p>最新单机游戏及MOD资源</p>
+                    </div>
+                    <div class="file-meta">
+                        <span>25GB</span>
+                        <span>2天前</span>
+                    </div>
+                </div>
+                <div class="file-actions">
+                    <button class="btn-sm">下载</button>
+                    <button class="btn-sm primary">提取码: jkl</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">为什么选择含羞草中转站</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>极速传输</h3>
+                    <p>采用多节点加速技术，支持断点续传，大文件秒速下载。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全存储</h3>
+                    <p>数据加密存储，严格审核上传资源，确保分享环境纯净安全。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h3>全球分发</h3>
+                    <p>智能CDN分发网络，无论身在何处，都能获得最佳访问体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">服务与支持</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <div class="service-icon">📁</div>
+                <div class="service-content">
+                    <h4>文件提取码分享</h4>
+                    <p>上传文件后自动生成提取码，通过聊天软件快速分享，无需注册即可下载。</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🛡️</div>
+                <div class="service-content">
+                    <h4>隐私保护机制</h4>
+                    <p>支持设置访问密码和有效期，过期的文件链接自动失效，彻底保障隐私。</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">📱</div>
+                <div class="service-content">
+                    <h4>多端同步支持</h4>
+                    <p>网页端、移动端、桌面端无缝切换，随时随地管理您的文件中转任务。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>含羞草中转站 fi11.cn</h2>
+                <p>致力于为用户提供最优质的文件存储与分享解决方案，打造值得信赖的数字资源中转平台。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源分类</h4>
+                <ul>
+                    <li><a href="#">办公软件</a></li>
+                    <li><a href="#">设计素材</a></li>
+                    <li><a href="#">影音娱乐</a></li>
+                    <li><a href="#">开发工具</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系信息</h4>
+                <ul>
+                    <li><a href="#">support@fi11.cn</a></li>
+                    <li><a href="#">QQ群: 123456789</a></li>
+                    <li><a href="#">工作时间: 9:00 - 18:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 fi11.cn 含羞草中转站 版权所有. 保留所有权利.</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
